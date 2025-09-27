@@ -191,7 +191,7 @@ we will be implementing these functions along with a few other small helper func
 > 2. In `main()`, call `Search` with a start of `{0, 0}` and a goal of `{4, 5}`. Store the results in the variable `solution`.\
 > 3. Pass `solution` to `PrintBoard`.
 >
-> [Solution](./Notebook/Starting%20A*%20Search.cpp)
+> [Solution](./Notebook/Starting%20Astar%20Search.cpp)
 
 ## Writing the A* Heuristic
 
@@ -201,7 +201,7 @@ we will be implementing these functions along with a few other small helper func
 > In this section, we will write a Heuristic function that will be used to guide the A* search. In general, any [admissible function](https://en.wikipedia.org/wiki/Admissible_heuristic) can be used for the heuristic, but for this project, we will write one that takes a pair of 2D coordinates on the grid and returns the [Manhattan Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) from one coordinate to the other\
 > &emsp;Write an `int Heuristic` function which takes four `int`s as arguments. The `int`s represent two pairs of 2D coordinates: $(x_1,y_1,x_2,y_2)$. The function should return an `int` which is the Manhattan Distance from one coordinate to the other: $|x_2 - x_1| + |y_2 - y_1|$\
 >
-> [Solution](./Notebook/Writing%20the%20A*%20Heuristic.cpp)
+> [Solution](./Notebook/Writing%20the%20Astar%20Heuristic.cpp)
 
 ## Pass by Reference in C++
 
@@ -293,7 +293,7 @@ In this exercise, we will implement the primary `while` loop in the algorithm wh
 > - `std::sort`
 > - `CellSort`: function uses the `Compare` function we wrote previously to determine the sorting order
 >
-> [Solution](./Notebook/Write%20a%20While%20Loop%20for%20the%20A*%20Algorithm.cpp)
+> [Solution](./Notebook/Write%20a%20While%20Loop%20for%20the%20Astar%20Algorithm.cpp)
 >
 > **Resources**:
 > - [vector::back() in C++ STL](https://www.geeksforgeeks.org/vectorfront-vectorback-c-stl/)
@@ -360,7 +360,7 @@ We have now reached the final step of the A algorithm! We are ready to expand ou
 > const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 > ```
 >
-> [Solution](./Notebook/Expand%20the%20A*%20Search%20to%20Neighbors.cpp)
+> [Solution](./Notebook/Expand%20the%20Astar%20Search%20to%20Neighbors.cpp)
 
 ## Arrrays
 
