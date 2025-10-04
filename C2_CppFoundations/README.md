@@ -471,3 +471,15 @@ This is fantastic, but it isn't clear where the beginning and end of the path ar
 ![](../ImgResources/l3-outro.png)
 
 [How to Become More Proficient at C++](https://youtu.be/t7Mx7o1C7NE)
+
+# 4. Writing Multifile Programs
+
+[Intro](https://youtu.be/2vJtny9S_LM)
+
+![](../ImgResources/l4-intro.png)
+
+## Header file
+
+[Header file](./Notebook/Header%20Files.ipynb)
+
+[Using Headers with Multiple Files](./Notebook/Using%20Headers%20with%20Multiple%20Files.ipynb)
