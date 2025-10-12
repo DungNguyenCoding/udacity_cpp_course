@@ -483,3 +483,9 @@ This is fantastic, but it isn't clear where the beginning and end of the path ar
 [Header file](./Notebook/Header%20Files.ipynb)
 
 [Using Headers with Multiple Files](./Notebook/Using%20Headers%20with%20Multiple%20Files.ipynb)
+
+[Bjarne on Build Systems](https://youtu.be/Wn1KTnVi7Fw)
+
+> [List of build automation software](https://en.wikipedia.org/wiki/List_of_build_automation_software)
+
+[CMake and Make](./Notebook/CMake%20and%20Make/CMake%20and%20Make.ipynb)

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspace/home/cmake_example/src/increment_and_sum.cpp
+vect_add_one.h
+/workspace/home/cmake_example/src/vect_add_one.h
+
+/workspace/home/cmake_example/src/increment_and_sum.h
+vector
+-
+
+/workspace/home/cmake_example/src/main.cpp
+iostream
+-
+vector
+-
+increment_and_sum.h
+/workspace/home/cmake_example/src/increment_and_sum.h
+
+/workspace/home/cmake_example/src/vect_add_one.cpp
+vect_add_one.h
+/workspace/home/cmake_example/src/vect_add_one.h
+
+/workspace/home/cmake_example/src/vect_add_one.h
+vector
+-
+
