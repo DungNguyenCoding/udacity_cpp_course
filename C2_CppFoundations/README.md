@@ -484,8 +484,41 @@ This is fantastic, but it isn't clear where the beginning and end of the path ar
 
 [Using Headers with Multiple Files](./Notebook/Using%20Headers%20with%20Multiple%20Files.ipynb)
 
+## Build System
+
 [Bjarne on Build Systems](https://youtu.be/Wn1KTnVi7Fw)
 
 > [List of build automation software](https://en.wikipedia.org/wiki/List_of_build_automation_software)
 
 [CMake and Make](./Notebook/CMake%20and%20Make/CMake%20and%20Make.ipynb)
+
+## References vs Pointers
+
+[References](./Notebook/References.ipynb)
+
+> [Bjarne on References](https://youtu.be/3fSSyJZI3y4)
+
+> **Note:** A C++ pointer is just a variable that stores the memory address of an object in your program.
+
+> **Note:** The symbols `&` and `*` have a different meaning, depending on which side of an equation they appear.
+>> For the `&` symbol, if it appears on the left side of an equation (e.g. when declaring a variable), it means that the variable is declared as a reference. If the `&` appears on the right side of an equation, or before a previously defined variable, it is used to return a memory address.
+
+[Pointers](./Notebook/Pointers.ipynb)
+
+[Pointers (cnt.)](./Notebook/Pointers%20Continued.ipynb)
+
+> [Bjarne on pointers](https://youtu.be/wBJc9szaiJ8)
+
+**References vs Pointers**
+
+Pointers and references can have similar use cases in C++. As seen previously, both references and pointers can be used in pass-by-reference to a function. Additionally, they both provide an alternative way to access an existing variable: pointers through the variable's address, and references through another name for that variable. But what are the differences between the two, and when should each be used? The following list summarizes some of the differences between pointers and references, as well as when each should be used:
+
+| References | Pointers |
+| :--- | :--- |
+| References must be initialized when they are declared. This means that a reference will always point to data that was intentionally assigned to it. | Pointers can be declared without being initialized, which is dangerous. If this happens mistakenly, the pointer could be pointing to an arbitrary address in memory, and the data associated with that address could be meaningless, leading to undefined behavior and difficult-to-resolve bugs. |
+| References can not be null. This means that a reference should point to meaningful data in the program. | Pointers can be null. In fact, if a pointer is not initialized immediately, it is often best practice to initialize to `nullptr`, a special type which indicates that the pointer is null. |
+| When used in a function for pass-by-reference, the reference can be used just as a variable of the same type would be. | When used in a function for pass-by-reference, a pointer must be dereferenced in order to access the underlying object. |
+
+References are generally easier and safer than pointers. As a decent rule of thumb, references should be used in place of pointers when possible.
+
+However, there are times when it is not possible to use references. One example is object initialization. You might like one object to store a reference to another object. However, if the other object is not yet available when the first object is created, then the first object will need to use a pointer, not a reference, since a reference cannot be null. The reference could only be initialized once the other object is created.
