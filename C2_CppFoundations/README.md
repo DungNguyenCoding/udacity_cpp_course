@@ -490,7 +490,7 @@ This is fantastic, but it isn't clear where the beginning and end of the path ar
 
 > [List of build automation software](https://en.wikipedia.org/wiki/List_of_build_automation_software)
 
-[CMake and Make](./Notebook/CMake%20and%20Make/CMake%20and%20Make.ipynb)
+[CMake and Make](./Notebook/CMake%20and%20Make/)
 
 ## References vs Pointers
 
@@ -522,3 +522,83 @@ Pointers and references can have similar use cases in C++. As seen previously, b
 References are generally easier and safer than pointers. As a decent rule of thumb, references should be used in place of pointers when possible.
 
 However, there are times when it is not possible to use references. One example is object initialization. You might like one object to store a reference to another object. However, if the other object is not yet available when the first object is created, then the first object will need to use a pointer, not a reference, since a reference cannot be null. The reference could only be initialized once the other object is created.
+
+## Maps
+
+A map (alternatively [hash table](https://en.wikipedia.org/wiki/Hash_table), hash map, or dictionary) is a data structure that uses `key/value pairs` to store data, and provides efficient lookup and insertion of the data. 
+
+[Hash Tables](./Notebook/Hash%20Tables.ipynb)
+
+## Classes and Object-Oriented Programming
+
+OOP is a style of coding that collects related data (object attributes) and functions (object methods) together to form a single data structure, called an object. This allows that collection of attributes and methods to be used repeatedly in the program without code repetition.
+
+In C++ the attributes and methods that make up an object are specified in a code class, and each object in the program is an instance of that class.
+
+[Classes and Object-Oriented Programming](./Notebook/Classes%20and%20Object%20Oriented%20Programming.ipynb)
+
+
+[Classes and Object-Oriented Programming (cnt.)](./Notebook/Classes%20and%20OOP%20Continued.ipynb)
+
+> When working with classes it is often helpful to be able to refer to the current class instance or object. For example, given the following `Car` class from a previous lesson, the `IncrementDistance()` method implicitly refers to the current `Car` instance's distance attribute:
+> ``` C++
+> // The Car class
+> class Car {
+>   public:
+>     // Method to print data.
+>     void PrintCarData() {
+>         cout << "The distance that the " << color << " car " << number << " has traveled is: " << distance << "\n";
+>     }
+>     
+>     // Method to increment the distance travelled.
+>     void IncrementDistance() {
+>         distance++;
+>     }
+>     
+>     // Class/object attributes
+>     string color;
+>     int distance = 0;
+>     int number;
+> };
+> ```
+>It is possible to make this explicit in C++ by using the `this` pointer, which points to the current class instance. Using `this` can sometimes be helpful to add clarity to more complicated code:
+> ```C++
+> // The Car class
+> class Car {
+>   public:
+>     // Method to print data.
+>     void PrintCarData() {
+>         cout << "The distance that the " << this->color << " car " << this->number << " has traveled is: " << this->distance << "\n";
+>     }
+>     
+>     // Method to increment the distance travelled.
+>     void IncrementDistance() {
+>         this->distance++;
+>     }
+>     
+>     // Class/object attributes
+>     string color;
+>     int distance = 0;
+>     int number;
+> };
+> ```
+
+## Outro
+
+[Outro](https://youtu.be/7DncZWgHTno)
+
+![](../ImgResources/l4-outro.png)
+
+[How Long Does it Take to Learn C++?](https://youtu.be/3COOvy3f0UA)
+
+# 5. Build an OpenStreetMap Route Planner
+
+[Overview](https://youtu.be/IMmcqtAFpq8)
+
+![](../ImgResources/c2_project-intro.png)
+
+Welcome to the course project! In this project, you will create a route planner that plots a path between two points on a map using real map data from the [OpenStreeMap project](https://www.openstreetmap.org/). When you are finished with the project, your output should look like the image below:
+
+![](../ImgResources/A%20path%20rendered%20between%20two%20points%20on%20a%20map..png)
+
+This starting code for this project comes from a [map rendering example](https://github.com/cpp-io2d/P0267_RefImpl/tree/master/P0267_RefImpl/Samples/maps) in the Github repo for the 2D Graphics Library, IO2D. In your project, you will be extending the code to search for and display a path between two points on the map.
