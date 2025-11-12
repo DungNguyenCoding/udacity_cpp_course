@@ -217,5 +217,3 @@ index 280ca96..e0f497b 100644
  }
 \ No newline at end of file
 ```
-
-> **Note**: 
