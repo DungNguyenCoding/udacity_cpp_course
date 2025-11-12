@@ -70,7 +70,6 @@ This course provides a comprehensive exploration of how memory interacts with pr
 
 This course provides a comprehensive introduction to concurrent programming concepts. It begins with an exploration of threads and parallel execution, focusing on how tasks can run simultaneously to enhance performance. The course then delves into critical aspects of shared data management and task synchronization, ensuring that multiple threads can operate without conflict. Students will learn about essential tools such as mutexes, locks, and condition variables, which are crucial for managing access to shared resources safely. Finally, participants will apply their knowledge in a project that integrates all learned concepts, fostering practical experience in designing and implementing concurrent systems.
 
-
 | **Lesson** | **Detail information** |
 | :--- | :--- |
 | 1. Threads and Parallel Execution  | Learn how to create, manage, and synchronize threads in C++ to unlock parallel execution, avoid race conditions, and ensure safe resource management using RAII and synchronization primitives. |
