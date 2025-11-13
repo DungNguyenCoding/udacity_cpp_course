@@ -1,0 +1,23 @@
+@startuml Class dependency
+package ClassDependency
+{
+    interface main{
+        + main(): int
+        + ReadFile(): static std::optional<std::vector<std::byte>>
+    }
+
+    class Model{}
+
+    class Render{}
+
+    class Route_Model{}
+
+    class Route_Planner{}
+
+    main <|-- Render
+    main <|-- Route_Model
+    main <|-- Route_Planner
+
+    Route_Model <|-- Model
+}
+@enduml
