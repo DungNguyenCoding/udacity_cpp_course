@@ -1,0 +1,130 @@
+@startuml Class diagram
+package Model
+{
+' struct def
++struct Node
+{
+    x: double
+    y: double
+}
+
++struct Way
+{
+    nodes: vector<int>
+}
+
++struct Road
+{
+    way: int
+    type: Type
+}
+
++struct Railway
+{
+    way: int
+}
+
++struct Multipolygon
+{
+    outer: vector<int>
+    inner: vector<int>
+}
+
++struct Building 
+{
+}
+
++struct Leisure
+{
+}
+
++struct Water
+{
+}
+
++struct Landuse
+{
+    type: Type
+}
+
+' enum def
+-enum Type1 as "Type"
+{
+    Invalid
+    Unclassified
+    Service
+    Residential
+    Tertiary
+    Secondary
+    Primary, 
+    Trunk
+    Motorway
+    Footway
+}
+
+-enum Type2 as "Type"
+{
+    Invalid
+    Commercial
+    Construction
+    Grass
+    Forest
+    Industrial
+    Railway
+    Residential
+}
+
+' Class def
+class Model
+{
+    - m_Nodes: vector<Node>
+    - m_Ways: vector<Way>
+    - m_Roads: vector<Road>
+    - m_Railways: vector<Railway>
+    - m_Buildings: vector<Building>
+    - m_Leisures: vector<Leisure>
+    - m_Waters: vector<Water>
+    - m_Landuses: vector<Landuse>
+
+    - m_MinLat: double
+    - m_MaxLat: double
+    - m_MinLon: double
+    - m_MaxLon: double
+    - m_MetricScale: double
+
+    + Model(const std::vector<std::byte> &xml)
+    + MetricScale (): auto
+    + &Nodes(): auto
+    + &Ways(): auto
+    + &Roads(): auto
+    + &Buildings(): auto
+    + &Leisures(): auto
+    + &Waters(): auto
+    + &Landuses(): auto
+    + &Railways(): auto
+
+    - AdjustCoordinates(): void
+    - BuildRings( Multipolygon &mp ): void
+    - LoadData( const std::vector<std::byte> &xml ): void
+}
+
+' relationship def
+Building --> Multipolygon: Inheritance
+Leisure --> Multipolygon: Inheritance
+Water --> Multipolygon: Inheritance
+Landuse --> Multipolygon: Inheritance
+
+Road -->  Type1: Using
+Leisure -->  Type2: Using
+
+Model --> Node: Using
+Model -->  Way: Using
+Model -->  Road: Using
+Model -->  Railway: Using
+Model -->  Building: Using
+Model -->  Water: Using
+Model -->  Landuse: Using
+Model -->  Leisure: Using
+}
+
+@enduml
