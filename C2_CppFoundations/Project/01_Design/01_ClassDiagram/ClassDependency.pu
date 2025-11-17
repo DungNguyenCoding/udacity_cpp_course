@@ -1,4 +1,4 @@
-@startuml Class dependency
+@startuml Class diagram
 package ClassDependency
 {
     interface main{

@@ -7,11 +7,13 @@ class Route_Model
     - node_to_road: unordered_map<int, std::vector<const Model::Road *>>
     - m_Nodes: vector<Node>
 
+    + path: vector<Node>
+
+    - CreateNodeToRoadHashmap(): void
+
     + RouteModel(const std::vector<std::byte> &xml)
     + &FindClosestNode(float x, float y): Node
     + &SNode(): auto
-
-    - CreateNodeToRoadHashmap(): void
 }
 
 +class Node
@@ -26,6 +28,7 @@ class Route_Model
     + neighbors: vector<Node *>
 
     - *FindNeighbor(std::vector<int> node_indices)
+
     + FindNeighbors(): void
     + distance(Node other): float
     + Node(){}
@@ -33,7 +36,7 @@ class Route_Model
 }
 
 ' relationship def
-
+Route_Model *-- Node
 }
 
 @enduml
