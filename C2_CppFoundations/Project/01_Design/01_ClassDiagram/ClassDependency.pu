@@ -1,0 +1,27 @@
+@startuml Class diagram
+package ClassDependency
+{
+' interface def
+    interface main{
+        + main(): int
+        + ReadFile(): static std::optional<std::vector<std::byte>>
+    }
+
+' Class def
+    class Model{}
+
+    class Render{}
+
+    class Route_Model{}
+
+    class Route_Planner{}
+
+' relationship def
+    main --> Render: Using
+    main --> Route_Model: Using
+    main --> Route_Planner: Using
+
+    Route_Model <|-- Model
+    Render o--right-- Route_Model
+}
+@enduml

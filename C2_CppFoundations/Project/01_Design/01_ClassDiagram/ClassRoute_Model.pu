@@ -1,0 +1,42 @@
+@startuml Class diagram
+package Route_Model
+{
+' Class def
+class Route_Model
+{
+    - node_to_road: unordered_map<int, std::vector<const Model::Road *>>
+    - m_Nodes: vector<Node>
+
+    + path: vector<Node>
+
+    - CreateNodeToRoadHashmap(): void
+
+    + RouteModel(const std::vector<std::byte> &xml)
+    + &FindClosestNode(float x, float y): Node
+    + &SNode(): auto
+}
+
++class Node
+{
+    - *parent_model: RouteModel
+    - index: int
+
+    + *parent: Node
+    + h_value: float
+    + g_value: float
+    + visited: bool
+    + neighbors: vector<Node *>
+
+    - *FindNeighbor(std::vector<int> node_indices)
+
+    + FindNeighbors(): void
+    + distance(Node other): float
+    + Node(){}
+    + Node(int idx, RouteModel * search_model, Model::Node node) : Model::Node(node), parent_model(search_model), index(idx) {}
+}
+
+' relationship def
+Route_Model *-- Node
+}
+
+@enduml

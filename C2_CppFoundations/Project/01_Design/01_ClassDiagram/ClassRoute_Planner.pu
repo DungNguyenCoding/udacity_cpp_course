@@ -1,0 +1,24 @@
+@startuml Class diagram
+package Route_Planner
+{
+' Class def
+Class Route_Planner
+{
+    - open_list: vector<RouteModel::Node*>
+    - *start_node: RouteModel::Node
+    - *end_node: RouteModel::Node
+    - distance: float
+    - &m_Model: RouteModel
+
+    + RoutePlanner(RouteModel &model, float start_x, float start_y, float end_x, float end_y)
+    + GetDistance(): float
+    + AStarSearch(): void
+    + AddNeighbors(RouteModel::Node *current_node): void
+    + CalculateHValue(RouteModel::Node const *node): float
+    + ConstructFinalPath(RouteModel::Node *): vector<RouteModel::Node>
+    + *NextNode(): RouteModel::Node
+}  
+
+}
+
+@enduml
