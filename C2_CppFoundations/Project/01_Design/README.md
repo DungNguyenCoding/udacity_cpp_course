@@ -89,31 +89,69 @@
 
 ### &emsp;1.4. Class `route_planner` <a id="1.4"></a>
 
-![ClassRoute_Route_Planner](../01_Design/01_ClassDiagram/ClassRoute_Planner.png)
+![ClassRoute_Planner](../01_Design/01_ClassDiagram/ClassRoute_Planner.png)
 
 | **Class attributes** | **Detail information** |
 | :--- | :--- |
-| ... | ... |
-| ... | ... |
+| open_list | Store pointers to Nodes that have been explored but not yet fully processed and the A* algorithm will continuously select the best Node from this list |
+| start_node | Points to the nearest starting node on the map |
+| end_node | Points to the nearest ending node on the map |
+| distance | Store the final distance of the found path |
+| m_Model | Reference to the `RouteModel` object the algorithm is working on |
 
 | **Class methods** | **Detail information** | **Activity Diagram** |
 | :--- | :--- | :--- |
-| ... | ... | [REF](...) |
-| ... | ... | [REF](...) |
+| RoutePlanner | Initialize RoutePlanner by getting map `model` and start/end coordinates | [REF](...) |
+| GetDistance | Returns the final distance of the found path | [REF](...) |
+| AStarSearch | Implement A* search algorithm to find path from start_node to end_node | [REF](...) |
+| AddNeighbors | Add all the neighboring Nodes of current_node to `open_list` by calculating and updating A* values ​​(g_value, h_value) and set parent for these neighboring Nodes | [REF](...) |
+| CalculateHValue | Calculate the Heuristic value (h_value) for a Node | [REF](...) |
+| ConstructFinalPath | Reconstruct the final path by tracing back the chain of parent pointers from end_node to start_node and return the total distance of the path | [REF](...) |
+| NextNode | Select the best Node from open_list and sort the open_list based on the lowest total cost (f_value = g_value + h_value) and return that Node, and remove it from the list | [REF](...) |
 
 ### &emsp;1.5. Class `render` <a id="1.5"></a>
 
-![ClassRoute_Route_Planner](../01_Design/01_ClassDiagram/ClassRender.png)
-
+![ClassRender](../01_Design/01_ClassDiagram/ClassRender.png)
 
 | **Class attributes** | **Detail information** |
 | :--- | :--- |
-| ... | ... |
-| ... | ... |
+| m_Model | A reference to the `RouteModel` object is used to get the map data and the path to draw |
+| m_Scale | Stores the base scale factor in pixels |
+| m_PixelsInMeter | Stores a specific conversion ratio between pixel and map (in meters) |
+| m_Matrix | Adjust, scale, and translate all point coordinates in the map model before they are drawn to the screen |
+| m_BackgroundFillBrush | Stores map background color |
+| m_BuildingFillBrush | Stores building objects paint |
+| m_BuildingOutlineBrush | Stores outline building objects paint |
+| m_BuildingOutlineStrokeProps | Stores the width of the outline building objects paint |
+| m_LeisureFillBrush | Stores leisure objects paint |
+| m_LeisureOutlineBrush | Stores outline leisure objects paint |
+| m_LeisureOutlineStrokeProps | Stores the width of the outline leisure objects paint |
+| m_WaterFillBrush | Stores water objects paint |
+| m_RailwayStrokeBrush | Stores outer stroke of the railway paint |
+| m_RailwayDashBrush | Stores inner stroke of the railway paint |
+| m_RailwayDashes | Stores the dashes type for `m_RailwayDashBrush` |
+| m_RailwayOuterWidth | Stores the width of the `m_RailwayStrokeBrush` |
+| m_RailwayInnerWidth | Stores the width of the `m_RailwayDashBrush` |
+| m_RoadReps | Stores display properties `RoadRep` for different road types |
+| m_LanduseBrushes | Store brushes for different land use types |
 
 | **Class methods** | **Detail information** | **Activity Diagram** |
 | :--- | :--- | :--- |
-| ... | ... | [REF](...) |
-| ... | ... | [REF](...) |
+| Render | Initialize a Render object with the provided RouteModel | [REF](...) |
+| Display | Carry out the drawing process | [REF](...) |
+| BuildRoadReps | Build and populate data into `m_RoadReps` | [REF](...) |
+| BuildLanduseBrushes | Build and populate data into `m_LanduseBrushes` | [REF](...) |
+| DrawBuildings | Draw all building objects | [REF](...) |
+| DrawHighways | Draw all highways objects | [REF](...) |
+| DrawRailways | Draw all railways objects | [REF](...) |
+| DrawLeisure | Draw all leisure objects | [REF](...) |
+| DrawWater | Draw all water objects | [REF](...) |
+| DrawLanduses | Draw all landuses objects | [REF](...) |
+| DrawStartPosition | Draw the starting point of the path | [REF](...) |
+| DrawEndPosition | Draw the ending point of the path | [REF](...) |
+| DrawPath | Draw the final path found | [REF](...) |
+| PathFromWay | Converts a `Model::Way` object to an `io2d::interpreted_path` object | [REF](...) |
+| PathFromMP | Converts a `Model::Multipolygon` object to an `io2d::interpreted_path` object | [REF](...) |
+| PathLine | Convert the list of Nodes in `m_Model.path` into an `io2d::interpreted_path` object | [REF](...) |
 
 ## II. Sequence diagram
